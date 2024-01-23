@@ -10,9 +10,7 @@ for i in range(len(dir)):
 	elif dir[i] ==  'R':
 		dir_num = (dir_num + 1) % 4
 	elif dir[i] == 'F':
-		dir_num = dir_num
-
-x += dx[dir_num]
-y += dy[dir_num]
+		x += dx[dir_num]
+		y += dy[dir_num]
 
 print(x, y)
