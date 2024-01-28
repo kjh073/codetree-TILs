@@ -1,7 +1,7 @@
-# n, x, y = map(int, input().split())
-# arr = [list(map(int, input().split())) for _ in range(n)]
-arr = [[1, 6, 7], [2, 5, 8], [3, 4, 9]]
-n, x, y = 3, 1, 1
+n, x, y = map(int, input().split())
+arr = [list(map(int, input().split())) for _ in range(n)]
+# arr = [[1, 6, 7], [2, 5, 8], [3, 4, 9]]
+# n, x, y = 3, 1, 1
 move_num = []
 x, y = x - 1, y - 1
 move_num.append(arr[x][y])
