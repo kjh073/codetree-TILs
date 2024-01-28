@@ -28,8 +28,11 @@ def next_pos(x, y):
 
 def move(x, y):
     nx, ny = next_pos(x, y)
-    if nx != -1 and ny != -1:
+    if nx == -1 and ny == -1:
+        next_cnt[x][y] += 1
+    else:
         next_cnt[nx][ny] += 1
+    
 
 def is_marble():
     for i in range(n):
