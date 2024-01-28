@@ -3,6 +3,7 @@ arr = [list(map(int, input().split())) for _ in range(n)]
 cnt = [[0] * n for _ in range(n)]
 next_cnt = [[0] * n for _ in range(n)]
 marble_cnt = 0
+# print(arr)
 
 for _ in range(m):
     r, c = map(int, input().split())
@@ -20,7 +21,8 @@ def next_pos(x, y):
     for dir_num in range(4):
         nx = x + dx[dir_num]
         ny = y + dy[dir_num]
-        if in_range(nx, ny) and arr[nx][ny] > max_num:
+        if in_range(nx, ny) and arr[nx][ny] >= arr[x][y] or\
+            in_range(nx, ny) and arr[nx][ny] > max_num:
             max_num = arr[nx][ny]
             max_pos = (nx, ny)
     x, y = max_pos
