@@ -16,13 +16,12 @@ def in_range(x, y):
     return 0 <= x < n and 0 <= y < n
 
 def next_pos(x, y):
-    max_num = arr[x][y]
+    max_num = 0
     max_pos = (-1, -1)
     for dir_num in range(4):
         nx = x + dx[dir_num]
         ny = y + dy[dir_num]
-        if in_range(nx, ny) and arr[nx][ny] >= arr[x][y] or\
-            in_range(nx, ny) and arr[nx][ny] > max_num:
+        if in_range(nx, ny) and arr[nx][ny] > max_num:
             max_num = arr[nx][ny]
             max_pos = (nx, ny)
     x, y = max_pos
@@ -42,20 +41,20 @@ def is_marble():
             if cnt[i][j] == 1:
                 move(i, j)
 
-def copy(cnt, next_cnt):
+
+for _ in range(t):
+    is_marble()
     for i in range(n):
         for j in range(n):
             if next_cnt[i][j] > 1:
                 continue
             else:
                 cnt[i][j] = next_cnt[i][j]
-    
-for _ in range(t):
-    is_marble()
-    copy(cnt, next_cnt)
+    next_cnt = [[0] * n for _ in range(n)]
 
 for i in range(n):
     for j in range(n):
         if cnt[i][j] == 1:
             marble_cnt += 1
+            
 print(marble_cnt)
