@@ -47,6 +47,7 @@ for _ in range(t):
     for i in range(n):
         for j in range(n):
             if next_cnt[i][j] > 1:
+                cnt[i][j] = 0
                 continue
             else:
                 cnt[i][j] = next_cnt[i][j]
