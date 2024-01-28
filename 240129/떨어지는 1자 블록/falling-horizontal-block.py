@@ -12,6 +12,8 @@ drop_row = 0
 for i in range(n):
     if able_row(i, arr[i]):
         drop_row = i
+    else:
+        break
 
 for j in range(0, m):
     arr[drop_row][k + j] = 1
