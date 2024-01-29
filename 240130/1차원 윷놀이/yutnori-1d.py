@@ -10,7 +10,7 @@ def move_mark():
     for i in range(turn):
         move_cnt[answer[i]] += move[i]
     for i in move_cnt:
-        if i >= fin:
+        if i >= fin - 1:
             fin_mark += 1
     max_mark = max(max_mark, fin_mark)
     # print(move_cnt)
