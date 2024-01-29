@@ -12,7 +12,7 @@ def choose(pos):
         return
     
     for i in range(1, k + 1):
-        if pos > 4 and answer[-1] == i and answer[-2] == i:
+        if pos >= 3 and answer[-1] == i and answer[-2] == i:
             continue   
         answer.append(i)
         choose(pos + 1)
