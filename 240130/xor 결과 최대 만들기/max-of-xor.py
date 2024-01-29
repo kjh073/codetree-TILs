@@ -3,7 +3,6 @@ nums = list(map(int, input().split()))
 answer = []
 max_xor = 0
 
-
 def power(a, n):
     if n == 0:
         return 1
@@ -14,12 +13,13 @@ def power(a, n):
         return x * x * a
     
 def dec_to_bin(dec):
-    if dec == 0 or dec == 1:
-        return str(dec)
-    if dec % 2 == 0:
-        return dec_to_bin(dec // 2) + '0'
-    else:
-        return dec_to_bin(dec // 2) + '1'
+    bin_arr = []
+    while True:
+        if dec == 0:
+            break
+        bin_arr.append(dec % 2)
+        dec = dec // 2 
+    return bin_arr
 
 def bin_to_dec(bin_num):
     dec = 0
@@ -35,6 +35,7 @@ def cal_xor():
         for i in range(1, len(bin1) + 1):
             xor_bin.append(bin1[-i])
         max_xor = max(bin_to_dec(xor_bin), max_xor)
+        
     bin1 = dec_to_bin(answer[0])
     for i in range(1, m):
         xor_bin = []
@@ -42,24 +43,22 @@ def cal_xor():
         bin1_len = len(bin1)
         bin2_len = len(bin2)
         max_len = max(bin1_len, bin2_len)
-        for j in range(1, max_len + 1):
-            if j > bin1_len:
-                if bin2[-j] == '1':
+        for j in range(0, max_len):
+            if j >= bin1_len:
+                if bin2[j] == 1:
                     xor_bin.append(1)
                 else:
                     xor_bin.append(0)
-            elif j > bin2_len:
-                if bin1[-j] == '1':
+            elif j >= bin2_len:
+                if bin1[j] == 1:
                     xor_bin.append(1)
                 else:
                     xor_bin.append(0)
-            elif bin1[-j] != bin2[-j]:
+            elif bin1[j] != bin2[j]:
                 xor_bin.append(1)
             else:
                 xor_bin.append(0)
-        bin1 = str(xor_bin[-1])
-        for k in range(2, len(xor_bin) + 1):
-            bin1 += str(xor_bin[-k])
+        bin1 = xor_bin
     max_xor = max(bin_to_dec(xor_bin), max_xor)
 
 
@@ -74,6 +73,7 @@ def choose(pos, idx):
         choose(pos + 1, i + 1)
         answer.pop()
     return
+
 
 choose(1, 0)
 print(max_xor)
