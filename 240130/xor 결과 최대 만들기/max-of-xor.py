@@ -32,8 +32,8 @@ def cal_xor():
     if len(answer) == 1:
         xor_bin = []
         bin1 = dec_to_bin(answer[0])
-        for i in range(1, len(bin1) + 1):
-            xor_bin.append(bin1[-i])
+        for i in range(0, len(bin1)):
+            xor_bin.append(bin1[i])
         max_xor = max(bin_to_dec(xor_bin), max_xor)
         
     bin1 = dec_to_bin(answer[0])
