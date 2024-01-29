@@ -35,9 +35,9 @@ def cal_xor():
         for i in range(1, len(bin1) + 1):
             xor_bin.append(bin1[-i])
         max_xor = max(bin_to_dec(xor_bin), max_xor)
+    bin1 = dec_to_bin(answer[0])
     for i in range(1, m):
         xor_bin = []
-        bin1 = dec_to_bin(answer[i - 1])
         bin2 = dec_to_bin(answer[i])
         bin1_len = len(bin1)
         bin2_len = len(bin2)
@@ -57,7 +57,10 @@ def cal_xor():
                 xor_bin.append(1)
             else:
                 xor_bin.append(0)
-        max_xor = max(bin_to_dec(xor_bin), max_xor)
+        bin1 = str(xor_bin[-1])
+        for k in range(2, len(xor_bin) + 1):
+            bin1 += str(xor_bin[-k])
+    max_xor = max(bin_to_dec(xor_bin), max_xor)
 
 
 def choose(pos, idx):
