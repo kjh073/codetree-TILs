@@ -3,11 +3,7 @@ nums = list(map(int, input().split()))
 answer = []
 max_xor = 0
 
-def print_answer():
-    for elem in answer:
-        print(elem, end=" ")
-    print()
-    
+
 def power(a, n):
     if n == 0:
         return 1
@@ -28,11 +24,17 @@ def dec_to_bin(dec):
 def bin_to_dec(bin_num):
     dec = 0
     for i in range(len(bin_num)):
-        dec += bin_num[i] * power(2, i)
+        dec += int(bin_num[i]) * power(2, i)
     return dec
     
 def cal_xor():
     global max_xor
+    if len(answer) == 1:
+        xor_bin = []
+        bin1 = dec_to_bin(answer[0])
+        for i in range(1, len(bin1) + 1):
+            xor_bin.append(bin1[-i])
+        max_xor = max(bin_to_dec(xor_bin), max_xor)
     for i in range(1, m):
         xor_bin = []
         bin1 = dec_to_bin(answer[i - 1])
