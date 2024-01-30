@@ -3,16 +3,15 @@ num = []
 answer = []
 # n = 10
 cnt = 0
-
 def is_beautiful(num):
     max_num = 1
     for i in range(1, n):
         if num[i - 1] != 1 and num[i] == num[i - 1]:
             max_num += 1
         elif num[i - 1] != 1 and num[i] != num[i - 1]:
-            if max_num != num[i - 1]:
+            if max_num % num[i - 1] != 0:
                 return False
-            elif num[i - 1] == max_num:
+            else:
                 max_num = 1
     if max_num % num[n - 1] != 0:
         return False
@@ -28,7 +27,7 @@ def choose(pos):
             cnt += 1
         return
     
-    for i in range(1, n + 1):
+    for i in range(1, 5):
         num.append(i)
         choose(pos + 1)
         num.pop()
