@@ -13,9 +13,11 @@ def in_range(x, y):
 def bfs():
     while q:
         x, y = q.popleft()
+        # print(x, y)
         for dx, dy in ((1, 0), (0, 1), (-1, 0), (0, -1)):
             nx, ny = x + dx, y + dy
             if in_range(nx, ny) and arr[nx][ny] == 1 and visited[nx][ny] == False:
+                dist[nx][ny] = dist[x][y] + 1
                 visited[nx][ny] = True
                 q.append((nx, ny))
                 
