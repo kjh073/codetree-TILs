@@ -8,7 +8,7 @@ arr = list(map(int, input().split()))
 
 def initialize():
     for i in range(n):
-        dp[i] = INT_MIN
+        dp[i] = 1
     dp[0] = 1
 
 initialize()
@@ -19,8 +19,8 @@ for i in range(1, n):
             continue
         if arr[j] < arr[i]:
             dp[i] = max(dp[i], dp[j] + 1)
-        else:
-            dp[i] = 1
+        # else:
+        #     dp[i] = 1
 
             
 result = 0
