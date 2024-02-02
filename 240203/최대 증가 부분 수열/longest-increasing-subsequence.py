@@ -19,6 +19,9 @@ for i in range(1, n):
             continue
         if arr[j] < arr[i]:
             dp[i] = max(dp[i], dp[j] + 1)
+        else:
+            dp[i] = 1
+
             
 result = 0
 for i in range(n):
